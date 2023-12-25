@@ -1,0 +1,15 @@
+﻿@model OrderDetailsViewModel
+
+<h2>Are you sure that u want to delete the following order: </h2>
+<p>User: @Model.UserFullName</p>
+<p>Price: @Model.TotalPrice</p>
+<p>Pizzas:</p>
+@foreach(var pizza in Model.PizzaNames){
+    <p>@pizza</p>
+}
+
+@*FIRST WAY*@
+<a class="btn" asp-controller="Order" asp-action="ConfirmDelete" asp-route-id="@Model.Id">Delete</a>
+<a class="btn" asp-controller="Order" asp-action="Index">Back</a>
+
+@*SECOND WAY*@
